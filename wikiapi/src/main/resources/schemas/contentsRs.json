@@ -1,0 +1,63 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "properties": {
+    "parse": {
+      "$id": "/properties/parse",
+      "type": "object",
+      "properties": {
+        "title": {
+          "$id": "/properties/parse/properties/title",
+          "type": "string"
+        },
+        "pageid": {
+          "$id": "/properties/parse/properties/pageid",
+          "type": "integer"
+        },
+        "sections": {
+          "$id": "/properties/parse/properties/sections",
+          "type": "array",
+          "items": {
+            "$id": "/properties/parse/properties/sections/items",
+            "type": "object",
+            "properties": {
+              "toclevel": {
+                "$id": "/properties/parse/properties/sections/items/properties/toclevel",
+                "type": "integer"
+              },
+              "level": {
+                "$id": "/properties/parse/properties/sections/items/properties/level",
+                "type": "string"
+              },
+              "line": {
+                "$id": "/properties/parse/properties/sections/items/properties/line",
+                "type": "string"
+              },
+              "number": {
+                "$id": "/properties/parse/properties/sections/items/properties/number",
+                "type": "string"
+              },
+              "index": {
+                "$id": "/properties/parse/properties/sections/items/properties/index",
+                "type": "string"
+              },
+              "fromtitle": {
+                "$id": "/properties/parse/properties/sections/items/properties/fromtitle",
+                "type": "string"
+              },
+              "byteoffset": {
+                "$id": "/properties/parse/properties/sections/items/properties/byteoffset",
+                "type": "integer"
+              },
+              "anchor": {
+                "$id": "/properties/parse/properties/sections/items/properties/anchor",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

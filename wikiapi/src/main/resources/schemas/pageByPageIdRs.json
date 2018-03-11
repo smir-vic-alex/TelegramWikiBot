@@ -1,0 +1,63 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "properties": {
+    "pageid": {
+      "$id": "/properties/pageid",
+      "type": "integer"
+    },
+    "ns": {
+      "$id": "/properties/ns",
+      "type": "integer"
+    },
+    "title": {
+      "$id": "/properties/title",
+      "type": "string"
+    },
+    "extract": {
+      "$id": "/properties/extract",
+      "type": "string"
+    },
+    "contentmodel": {
+      "$id": "/properties/contentmodel",
+      "type": "string"
+    },
+    "pagelanguage": {
+      "$id": "/properties/pagelanguage",
+      "type": "string"
+    },
+    "pagelanguagehtmlcode": {
+      "$id": "/properties/pagelanguagehtmlcode",
+      "type": "string"
+    },
+    "pagelanguagedir": {
+      "$id": "/properties/pagelanguagedir",
+      "type": "string"
+    },
+    "touched": {
+      "$id": "/properties/touched",
+      "type": "string"
+    },
+    "lastrevid": {
+      "$id": "/properties/lastrevid",
+      "type": "integer"
+    },
+    "length": {
+      "$id": "/properties/length",
+      "type": "integer"
+    },
+    "fullurl": {
+      "$id": "/properties/fullurl",
+      "type": "string"
+    },
+    "editurl": {
+      "$id": "/properties/editurl",
+      "type": "string"
+    },
+    "canonicalurl": {
+      "$id": "/properties/canonicalurl",
+      "type": "string"
+    }
+  }
+}

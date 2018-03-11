@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+    <bean class="org.telegram.telegrambots.ApiContextInitializer" init-method="init"/>
+
+    <bean class="org.telegram.telegrambots.TelegramBotsApi"/>
+
+    <bean class="com.telegram.api.bot.BotInitializer" init-method="init">
+        <constructor-arg>
+            <list>
+                <bean class="com.telegram.api.bot.TelegramBot"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean class="com.telegram.api.bot.messages.MessageWikiBotResolver" scope="prototype"/>
+    <bean class="com.telegram.api.bot.processors.WikiAnswerProcessor" scope="prototype">
+        <property name="delegate" ref="simpleAnswerDelegate"/>
+    </bean>
+
+    <bean class="com.telegram.api.bot.processors.CallBackProcessor" scope="prototype">
+        <property name="delegate" ref="callBackAnswerDelegate"/>
+    </bean>
+
+    <bean class="com.telegram.api.bot.processors.CommandProcessor" scope="prototype">
+        <property name="delegate" ref="commandAnswerDelegate"/>
+    </bean>
+
+    <bean class="com.telegram.api.bot.processors.BotMessageProcessorsFactory"/>
+    <context:annotation-config/>
+</beans>
