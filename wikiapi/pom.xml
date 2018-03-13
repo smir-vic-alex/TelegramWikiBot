@@ -35,13 +35,6 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>com.bitplan</groupId>
-            <artifactId>mediawiki-japi</artifactId>
-            <version>0.0.22</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.htmlparser/htmlparser -->
-        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
-        <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
             <version>1.11.2</version>
