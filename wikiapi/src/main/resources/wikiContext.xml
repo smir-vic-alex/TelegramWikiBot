@@ -5,7 +5,6 @@
        xmlns:jee="http://www.springframework.org/schema/jee"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+    <bean id="WikiApiService" class="com.wiki.api.services.WikiApiService" scope="prototype"/>
 
-
-    <context:annotation-config/>
 </beans>

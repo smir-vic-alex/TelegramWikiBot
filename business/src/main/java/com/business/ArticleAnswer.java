@@ -8,6 +8,7 @@ import org.jsoup.safety.Whitelist;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import ru.json.schema2pojo.dto.*;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class ArticleAnswer implements AnswerDelegate {
     private static Logger LOGGER = LoggerFactory.getLogger(ArticleAnswer.class);
 
     @Autowired
+    @Qualifier("WikiApiService")
     private WikiApiService wikiApiService;
     @Autowired
     private BusinessCache cache;

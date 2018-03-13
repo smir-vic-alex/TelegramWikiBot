@@ -32,5 +32,4 @@
     </bean>
 
     <bean class="com.telegram.api.bot.processors.BotMessageProcessorsFactory"/>
-    <context:annotation-config/>
 </beans>
