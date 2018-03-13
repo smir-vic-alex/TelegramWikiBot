@@ -15,8 +15,7 @@ public class ProcessorTypeSelector {
             if (BusinessConfig.getInputCommands().contains(message.toLowerCase()))
                 return CommandProcessor.class;
             return WikiAnswerProcessor.class;
-        }
-        else if (update.hasCallbackQuery())
+        } else if (update.hasCallbackQuery())
             return CallBackProcessor.class;
         throw new RuntimeException();
     }

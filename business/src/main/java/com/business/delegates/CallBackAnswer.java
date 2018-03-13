@@ -1,4 +1,4 @@
-package com.business;
+package com.business.delegates;
 
 import com.business.pojo.Article;
 import org.springframework.beans.factory.annotation.Autowired;

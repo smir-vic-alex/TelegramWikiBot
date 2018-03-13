@@ -1,5 +1,6 @@
-package com.business;
+package com.business.delegates;
 
+import com.business.BusinessConfig;
 import com.business.pojo.Command;
 
 /**

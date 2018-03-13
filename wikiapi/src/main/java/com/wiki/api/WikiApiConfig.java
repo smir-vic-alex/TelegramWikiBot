@@ -32,7 +32,7 @@ public class WikiApiConfig {
         return PropertiesService.getInstance().get(PAGE_SECTIONS_BY_ID_URL_KEY);
     }
 
-    public static String getWikiRootUrl(){
+    public static String getWikiRootUrl() {
         return PropertiesService.getInstance().get(WIKI_BASE_URL);
     }
 
@@ -41,6 +41,6 @@ public class WikiApiConfig {
     }
 
     public static String getBaseUrl() {
-        return getWikiRootUrl()+ "?" + getWikiRsFormat() + "&";
+        return getWikiRootUrl() + "?" + getWikiRsFormat() + "&";
     }
 }

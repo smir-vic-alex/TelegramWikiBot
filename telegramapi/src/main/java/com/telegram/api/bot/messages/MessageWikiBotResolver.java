@@ -1,7 +1,8 @@
 package com.telegram.api.bot.messages;
 
 import com.telegram.api.bot.DefaultMessage;
-import com.telegram.api.bot.processors.*;
+import com.telegram.api.bot.processors.BotMessageProcessorsFactory;
+import com.telegram.api.bot.processors.ProcessorTypeSelector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

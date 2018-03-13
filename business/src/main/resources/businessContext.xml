@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="simpleAnswerDelegate" class="com.business.ArticleAnswer" scope="prototype"/>
-    <bean id="callBackAnswerDelegate" class="com.business.CallBackAnswer" scope="prototype"/>
-    <bean id="commandAnswerDelegate" class="com.business.CommandAnswer" scope="prototype"/>
+    <bean id="simpleAnswerDelegate" class="com.business.delegates.ArticleAnswer" scope="prototype"/>
+    <bean id="callBackAnswerDelegate" class="com.business.delegates.CallBackAnswer" scope="prototype"/>
+    <bean id="commandAnswerDelegate" class="com.business.delegates.CommandAnswer" scope="prototype"/>
 
-    <bean id="cacheArticle" class="com.business.ArticleCache">
+    <bean id="cacheArticle" class="com.business.cache.ArticleCache">
         <constructor-arg name="myUrl" value="/ehcache.xml"/>
         <constructor-arg name="cacheName" value="articles"/>
     </bean>

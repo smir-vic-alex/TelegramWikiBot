@@ -1,6 +1,5 @@
 package com.telegram.api.bot;
 
-import com.common.wiki.tgm.PropertiesService;
 import com.telegram.api.bot.messages.MessageWikiBotResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,14 +15,19 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
  */
 public class TelegramBot extends TelegramLongPollingBot {
     private static Logger LOGGER = LoggerFactory.getLogger(TelegramBot.class);
-    private static final String BOT_TOKEN = "bot.token";
-    private static final String BOT_NAME = "bot.name";
+    private String token;
+    private String name;
 
     @Autowired
     private MessageWikiBotResolver resolver;
 
+    public TelegramBot(String token, String name) {
+        this.token = token;
+        this.name = name;
+    }
+
     public String getBotToken() {
-        return PropertiesService.getInstance().get(BOT_TOKEN);
+        return token;
     }
 
     public void onUpdateReceived(Update update) {
@@ -35,6 +39,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     public String getBotUsername() {
-        return PropertiesService.getInstance().get(BOT_NAME);
+        return name;
     }
 }

@@ -1,5 +1,7 @@
-package com.business;
+package com.business.delegates;
 
+import com.business.cache.ArticleCache;
+import com.business.cache.BusinessCache;
 import com.business.pojo.Article;
 import com.wiki.api.services.WikiApiService;
 import org.jsoup.Jsoup;
@@ -31,8 +33,8 @@ public class ArticleAnswer implements AnswerDelegate {
     public Article getAnswer(String articleTitleName) {
         LOGGER.info("articleTitleName " + articleTitleName);
 
-        Article article = (Article) cache.get(articleTitleName.toLowerCase());
-        if (article!= null)
+        Article article = (Article) cache.getCachedObj(articleTitleName.toLowerCase());
+        if (article != null)
             return article;
 
         Integer pageId = getPageId(articleTitleName);
@@ -44,7 +46,7 @@ public class ArticleAnswer implements AnswerDelegate {
             article.setAnswer(Jsoup.clean(pageByPageIdResponse.getExtract(), "", Whitelist.none(), new Document.OutputSettings().prettyPrint(false)));
             article.setUrlToRealPage(pageByPageIdResponse.getFullurl());
             article.setSeeAlsoLinks(getSeeAlsoLinks(pageId));
-            ((ArticleCache)cache).getCache().put(articleTitleName.toLowerCase(), article);
+            ((ArticleCache) cache).getCache().put(articleTitleName.toLowerCase(), article);
             return article;
         } else {
             LOGGER.info("Not found articleTitleName " + articleTitleName);
@@ -54,7 +56,7 @@ public class ArticleAnswer implements AnswerDelegate {
 
     private Integer getPageId(String articleTitleName) {
         SearchByTitleRs rs = wikiApiService.getPageIdByTitle(articleTitleName);
-        if (rs.getQuery()!= null && rs.getQuery().getSearch()!= null && rs.getQuery().getSearch().size() >0) {
+        if (rs.getQuery() != null && rs.getQuery().getSearch() != null && rs.getQuery().getSearch().size() > 0) {
             return rs.getQuery().getSearch().get(0).getPageid();
         }
         return null;

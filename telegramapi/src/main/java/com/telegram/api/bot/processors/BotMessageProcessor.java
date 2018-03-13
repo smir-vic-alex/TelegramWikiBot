@@ -1,6 +1,6 @@
 package com.telegram.api.bot.processors;
 
-import com.business.AnswerDelegate;
+import com.business.delegates.AnswerDelegate;
 import com.common.wiki.tgm.interfaces.Processor;
 import org.telegram.telegrambots.api.methods.BotApiMethod;
 import org.telegram.telegrambots.api.objects.Update;

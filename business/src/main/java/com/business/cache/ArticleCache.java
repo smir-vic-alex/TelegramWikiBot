@@ -1,4 +1,4 @@
-package com.business;
+package com.business.cache;
 
 import com.business.pojo.Article;
 import org.ehcache.Cache;
@@ -19,7 +19,7 @@ public class ArticleCache extends BusinessCache {
     }
 
     @Override
-    public Article get(String key) {
+    public Article getCachedObj(String key) {
         return this.getCache().get(key);
     }
 }

@@ -14,6 +14,7 @@
         <module>business</module>
         <module>warpackaging</module>
         <module>common</module>
+        <module>admin</module>
     </modules>
 
     <properties>
