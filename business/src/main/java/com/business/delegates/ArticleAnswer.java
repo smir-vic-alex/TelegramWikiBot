@@ -21,7 +21,7 @@ import java.util.List;
  * бизнес обработчик запроса на статью вики
  * Created by Виктор on 09.03.2018.
  */
-public class ArticleAnswer implements AnswerDelegate {
+public class ArticleAnswer implements AnswerBusinessHandler {
     private static Logger LOGGER = LoggerFactory.getLogger(ArticleAnswer.class);
 
     @Autowired

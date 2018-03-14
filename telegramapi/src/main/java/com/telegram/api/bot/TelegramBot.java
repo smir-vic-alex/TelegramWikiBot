@@ -14,13 +14,14 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
  * Created by Виктор on 08.03.2018.
  */
 public class TelegramBot extends TelegramLongPollingBot {
+
+    public static final String TELEGRAM_API_EXCEPTION_MESSAGE = "TelegramApiException with update: ";
     private static Logger LOGGER = LoggerFactory.getLogger(TelegramBot.class);
     private String token;
     private String name;
 
     @Autowired
     private MessageWikiBotResolver resolver;
-
 
     public String getBotToken() {
         return token;
@@ -30,7 +31,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         try {
             execute(resolver.resolve(update));
         } catch (TelegramApiException e) {
-            LOGGER.error("TelegramApiException ", e);
+            LOGGER.error(TELEGRAM_API_EXCEPTION_MESSAGE + update.toString(), e);
         }
     }
 

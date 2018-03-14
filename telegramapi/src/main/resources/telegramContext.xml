@@ -9,9 +9,9 @@
     <bean class="org.telegram.telegrambots.TelegramBotsApi"/>
 
     <bean class="com.telegram.api.bot.BotService"/>
+    <bean class="com.telegram.api.bot.processors.ProcessorTypeSelector"/>
     <bean class="com.telegram.api.bot.TelegramBot" scope="prototype"/>
     <bean class="com.telegram.api.bot.TelegramBotFactory"/>
-    <bean class="com.telegram.api.bot.BotDelegate"/>
     <bean class="com.telegram.api.bot.messages.MessageWikiBotResolver" scope="prototype"/>
     <bean class="com.telegram.api.bot.processors.WikiAnswerProcessor" scope="prototype">
         <property name="delegate" ref="simpleAnswerDelegate"/>

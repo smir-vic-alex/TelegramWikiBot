@@ -6,11 +6,14 @@
   "properties": {
     "token": {
       "description": "telegram bot token",
-      "type": "string"
+      "type": "string",
+      "minLength": 40
     },
     "name": {
       "description": "telegram bot name",
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     }
-  }
+  },
+  "required": ["token", "name"]
 }

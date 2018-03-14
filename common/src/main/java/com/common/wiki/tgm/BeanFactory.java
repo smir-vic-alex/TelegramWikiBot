@@ -1,6 +1,8 @@
 package com.common.wiki.tgm;
 
 import com.common.wiki.tgm.interfaces.Factory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
@@ -9,6 +11,8 @@ import org.springframework.context.ApplicationContext;
  * Created by Виктор on 09.03.2018.
  */
 public class BeanFactory implements Factory {
+
+    protected static Logger LOGGER = LoggerFactory.getLogger(BeanFactory.class);
 
     @Autowired
     private ApplicationContext applicationContext;

@@ -1,6 +1,6 @@
 package com.telegram.api.bot.messages;
 
-import com.telegram.api.bot.DefaultMessage;
+import com.telegram.api.bot.BotMessageUtils;
 import com.telegram.api.bot.processors.BotMessageProcessorsFactory;
 import com.telegram.api.bot.processors.ProcessorTypeSelector;
 import org.slf4j.Logger;
@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 
 /**
- * передает обработку сообщения по его типу определнному процессору
+ * Передает обработку сообщения по его типу определнному процессору
  * Created by Виктор on 09.03.2018.
  */
 public class MessageWikiBotResolver {
@@ -21,14 +21,16 @@ public class MessageWikiBotResolver {
 
     @Autowired
     private BotMessageProcessorsFactory processorFactory;
+    @Autowired
+    private ProcessorTypeSelector selector;
 
     public BotApiMethod<? extends Serializable> resolve(Update update) {
         try {
-            Class type = ProcessorTypeSelector.getType(update);
+            Class type = selector.getType(update);
             return processorFactory.getProcessor(type).process(update);
-        } catch (Exception e) {
-            LOGGER.error("Error ", e);
-            return DefaultMessage.fail(update.getMessage().getChatId());
+        } catch (Throwable e) {
+            LOGGER.error("Error handle update " + update.toString(), e);
+            return BotMessageUtils.fail(update.getMessage().getChatId());
         }
     }
 }

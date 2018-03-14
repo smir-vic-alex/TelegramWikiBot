@@ -28,7 +28,7 @@ public class BusinessConfig {
         return map;
     }
 
-    public static Map<String, String> getCommandsMap() {
+    public Map<String, String> getCommandsMap() {
         return COMMAND_MAP;
     }
 }

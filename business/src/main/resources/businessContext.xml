@@ -7,7 +7,7 @@
     <bean id="simpleAnswerDelegate" class="com.business.delegates.ArticleAnswer" scope="prototype"/>
     <bean id="callBackAnswerDelegate" class="com.business.delegates.CallBackAnswer" scope="prototype"/>
     <bean id="commandAnswerDelegate" class="com.business.delegates.CommandAnswer" scope="prototype"/>
-
+    <bean id="com.business.BusinessConfig" class="com.business.BusinessConfig"/>
     <bean id="cacheArticle" class="com.business.cache.ArticleCache">
         <constructor-arg name="myUrl" value="/ehcache.xml"/>
         <constructor-arg name="cacheName" value="articles"/>

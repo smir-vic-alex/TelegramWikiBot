@@ -14,6 +14,8 @@ import java.util.List;
  * Created by Виктор on 08.03.2018.
  */
 public class BotService {
+
+    private static final String BOT_DID_NOT_REGISTER = "Some bot did not register";
     private static Logger LOGGER = LoggerFactory.getLogger(BotService.class);
 
     @Autowired
@@ -28,18 +30,30 @@ public class BotService {
             botsApi.registerBot(bot);
             registeredBots.add(bot);
         } catch (Exception e) {
-            LOGGER.error("Some bot did not register", e);
+            LOGGER.error(BOT_DID_NOT_REGISTER, e);
+            throw new TelegramApiModuleException(BOT_DID_NOT_REGISTER, e);
         }
     }
 
+    /**
+     * Зарегистрировать нового вики телешрам бота
+     *
+     * @param token токен выданный @BotFather
+     * @param name  имя бота
+     */
     public void register(String token, String name) {
-        TelegramBot bot = botFactory.getNewBot();
-        bot.setToken(token);
-        bot.setName(name);
+        TelegramBot bot = getTelegramBot(token, name);
         register(bot);
     }
 
     public static List<TelegramLongPollingBot> getRegisteredBots() {
         return registeredBots;
+    }
+
+    private TelegramBot getTelegramBot(String token, String name) {
+        TelegramBot bot = botFactory.getNewBot();
+        bot.setToken(token);
+        bot.setName(name);
+        return bot;
     }
 }

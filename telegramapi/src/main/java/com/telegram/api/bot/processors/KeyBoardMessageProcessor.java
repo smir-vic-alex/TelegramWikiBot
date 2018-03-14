@@ -14,13 +14,10 @@ import java.util.List;
 public abstract class KeyBoardMessageProcessor extends BotMessageProcessor {
 
     protected InlineKeyboardMarkup getKeyBoard(List<String> links) {
-        InlineKeyboardMarkup markup = new InlineKeyboardMarkup();
-        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
-
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>(links.size());
         for (String link : links) {
             rowsInline.add(Collections.singletonList(new InlineKeyboardButton().setText(link).setCallbackData(link)));
         }
-        markup.setKeyboard(rowsInline);
-        return markup;
+        return new InlineKeyboardMarkup().setKeyboard(rowsInline);
     }
 }
