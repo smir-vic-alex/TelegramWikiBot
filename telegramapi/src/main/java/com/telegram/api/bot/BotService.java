@@ -18,21 +18,10 @@ public class BotService {
 
     @Autowired
     private TelegramBotsApi botsApi;
-    private List<TelegramLongPollingBot> bots;
+    @Autowired
+    private TelegramBotFactory botFactory;
+
     private static List<TelegramLongPollingBot> registeredBots = new ArrayList<>();
-
-    public BotService(List<TelegramLongPollingBot> bots) {
-        this.bots = bots;
-    }
-
-    public void initBot() {
-        if (bots != null) {
-            for (TelegramLongPollingBot bot : bots) {
-                register(bot);
-            }
-            bots = null;
-        }
-    }
 
     public synchronized void register(TelegramLongPollingBot bot) {
         try {
@@ -44,7 +33,10 @@ public class BotService {
     }
 
     public void register(String token, String name) {
-        register(new TelegramBot(token, name));
+        TelegramBot bot = botFactory.getNewBot();
+        bot.setToken(token);
+        bot.setName(name);
+        register(bot);
     }
 
     public static List<TelegramLongPollingBot> getRegisteredBots() {

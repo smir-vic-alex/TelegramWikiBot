@@ -21,10 +21,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     private MessageWikiBotResolver resolver;
 
-    public TelegramBot(String token, String name) {
-        this.token = token;
-        this.name = name;
-    }
 
     public String getBotToken() {
         return token;
@@ -40,5 +36,13 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     public String getBotUsername() {
         return name;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -1,24 +1,29 @@
 package com.admin.wiki.tlg.bot.rest.services;
 
-import com.business.delegates.BotDelegate;
+import com.business.BusinessConfig;
+import com.telegram.api.bot.BotDelegate;
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.json.schema2pojo.dto.AddCommandRq;
 import ru.json.schema2pojo.dto.CreateBotRq;
 import ru.json.schema2pojo.dto.DefaultAnswer;
-import ru.json.schema2pojo.dto.LoginRq;
 
 public class AdminService {
 
+    @Autowired
+    private BotDelegate botDelegate;
+
     public DefaultAnswer createBot(CreateBotRq createBotRq) {
-        BotDelegate botDelegate = new BotDelegate();
         botDelegate.registerNewBot(createBotRq.getToken(), createBotRq.getName());
-        return new DefaultAnswer();
+
+        DefaultAnswer answer = new DefaultAnswer();
+        answer.setSuccess("success");
+        return answer;
     }
 
-    public DefaultAnswer login(LoginRq loginRq) {
-        return new DefaultAnswer();
-    }
-
-    public DefaultAnswer changeConfig(AddCommandRq addCommandRq) {
-        return new DefaultAnswer();
+    public DefaultAnswer addCommand(AddCommandRq addCommandRq) {
+        BusinessConfig.getCommandsMap().put(addCommandRq.getCommand(), addCommandRq.getValue());
+        DefaultAnswer answer = new DefaultAnswer();
+        answer.setSuccess("success");
+        return answer;
     }
 }

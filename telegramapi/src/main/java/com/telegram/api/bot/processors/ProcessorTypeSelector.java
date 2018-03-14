@@ -12,7 +12,7 @@ public class ProcessorTypeSelector {
     public static Class getType(Update update) {
         if (isTextMessage(update)) {
             String message = update.getMessage().getText();
-            if (BusinessConfig.getInputCommands().contains(message.toLowerCase()))
+            if (BusinessConfig.getCommandsMap().keySet().contains(message.toLowerCase()))
                 return CommandProcessor.class;
             return WikiAnswerProcessor.class;
         } else if (update.hasCallbackQuery())

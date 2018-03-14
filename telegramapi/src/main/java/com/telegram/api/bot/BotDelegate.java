@@ -1,6 +1,5 @@
-package com.business.delegates;
+package com.telegram.api.bot;
 
-import com.telegram.api.bot.BotService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

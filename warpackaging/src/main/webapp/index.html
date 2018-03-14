@@ -1,0 +1,65 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#post-btn").click(function () {
+                var json = '{"name": "'+$('#name').val()+'","token": "'+$('#token').val()+'"}';
+                // $.post("rest/admin/put/bot", json, function (data) {
+                //     alert(data);
+                // });
+                $.ajax({
+                    url:"rest/admin/put/bot",
+                    type:"POST",
+                    data:json,
+                    contentType:"application/json; charset=utf-8",
+                    dataType:"json",
+                    async: false,
+                    success: function () {
+                        alert("Done!");
+                    }
+                })
+            });
+
+            $("#cmd-btn").click(function () {
+                var json = '{"command": "'+$('#command').val()+'","value": "'+$('#value').val()+'"}';
+                // $.post("rest/admin/put/bot", json, function (data) {
+                //     alert(data);
+                // });
+                $.ajax({
+                    url:"rest/admin/add/command",
+                    type:"POST",
+                    data:json,
+                    contentType:"application/json; charset=utf-8",
+                    dataType:"json",
+                    async: false,
+                    success: function () {
+                        alert("Done!");
+                    }
+                })
+            });
+        })
+    </script>
+</head>
+<body>
+add bot form
+<form name="Add bot">
+    name: <input type="text" id="name" name="botName">
+    <br>
+    token: <input type="text" id="token" name="botToken">
+    <br>
+    <button type="button" id="post-btn">Add</button>
+</form>
+add command for all bots form
+<form name="Add bot">
+    command: <input type="text" id="command" name="botName">
+    <br>
+    value: <input type="text" id="value" name="botToken">
+    <br>
+    <button type="button" id="cmd-btn">Add</button>
+</form>
+</body>
+</html>

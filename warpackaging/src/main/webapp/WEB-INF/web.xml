@@ -8,6 +8,10 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:applicationContext.xml</param-value>
@@ -18,7 +22,7 @@
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>com.services.rest.endpoints</param-value>
+            <param-value>com.admin.wiki.tlg.bot.rest.endpoints</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
