@@ -15,21 +15,29 @@ import org.slf4j.LoggerFactory;
  */
 public class WikiExecutor<T> {
 
+    private static final String FAIL_MSG = "WikiExecutor fail";
     private static Logger LOGGER = LoggerFactory.getLogger(WikiExecutor.class);
 
     public T execute(String params, ResponseMapper<T> mapper) {
         try {
             HttpClient httpClient = HttpClientBuilder.create().build();
-            params = params.replace("|", "%7C");
-            HttpPost postMethod = new HttpPost(WikiApiConfig.getBaseUrl() + params);
+            HttpPost postMethod = new HttpPost(getUri(handleDataToValid(params)));
             HttpResponse rawResponse = httpClient.execute(postMethod);
             String rs = EntityUtils.toString(rawResponse.getEntity(), JsonEncoding.UTF8.getJavaName());
             LOGGER.debug(rs);
 
             return mapper.mapResponse(rs);
-        } catch (Exception e) {
-            LOGGER.error("WikiExecutor fail", e);
-            throw new RuntimeException();
+        } catch (Throwable e) {
+            LOGGER.error(FAIL_MSG, e);
+            throw new WkiApiException(FAIL_MSG, e);
         }
+    }
+
+    private String getUri(String params) {
+        return WikiApiConfig.getBaseUrl() + params;
+    }
+
+    private String handleDataToValid(String params) {
+        return params.replace("|", "%7C");
     }
 }

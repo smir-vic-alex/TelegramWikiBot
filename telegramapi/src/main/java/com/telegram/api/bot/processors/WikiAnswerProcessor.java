@@ -31,7 +31,7 @@ public class WikiAnswerProcessor extends KeyBoardMessageProcessor {
     }
 
     private SendMessage sendAnswer(Message message, Article article) {
-        return BotMessageUtils.message(message.getChatId(), article.getAnswer() + "\n" + article.getUrlToRealPage(), getKeyBoard(article.getSeeAlsoLinks()));
+        return BotMessageUtils.message(message.getChatId(), article.getText(), getKeyBoard(article.getSeeAlsoLinks()));
     }
 
     private Article getArticleAnswer(Message message) {

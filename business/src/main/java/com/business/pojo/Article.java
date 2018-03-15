@@ -7,24 +7,15 @@ import java.util.List;
  * Created by Виктор on 10.03.2018.
  */
 public class Article implements Answer {
-    private String answer;
-    private String urlToRealPage;
+    private String text;
     private List<String> seeAlsoLinks;
 
-    public String getAnswer() {
-        return answer;
+    public String getText() {
+        return text;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
-    public String getUrlToRealPage() {
-        return urlToRealPage;
-    }
-
-    public void setUrlToRealPage(String urlToRealPage) {
-        this.urlToRealPage = urlToRealPage;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public List<String> getSeeAlsoLinks() {

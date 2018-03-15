@@ -31,4 +31,8 @@ public class BusinessConfig {
     public Map<String, String> getCommandsMap() {
         return COMMAND_MAP;
     }
+
+    public static Integer getSeeAlsoListSize() {
+        return Integer.parseInt(PropertiesService.getInstance().get("see.also.list.size"));
+    }
 }

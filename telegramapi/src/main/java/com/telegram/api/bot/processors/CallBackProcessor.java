@@ -35,7 +35,7 @@ public class CallBackProcessor extends KeyBoardMessageProcessor {
     }
 
     private EditMessageText getEditMessageText(Long chatId, Integer messageId, Article article) {
-        return BotMessageUtils.message(chatId, messageId, article.getAnswer() + "\n" + article.getUrlToRealPage(), getKeyBoard(article.getSeeAlsoLinks()));
+        return BotMessageUtils.message(chatId, messageId, article.getText(), getKeyBoard(article.getSeeAlsoLinks()));
     }
 
     private Article getArticle(String callData) {

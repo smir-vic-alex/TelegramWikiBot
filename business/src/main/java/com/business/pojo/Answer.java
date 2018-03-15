@@ -5,5 +5,5 @@ package com.business.pojo;
  * Created by Виктор on 11.03.2018.
  */
 public interface Answer {
-    String getAnswer();
+    String getText();
 }

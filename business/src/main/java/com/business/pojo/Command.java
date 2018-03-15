@@ -5,14 +5,14 @@ package com.business.pojo;
  * Created by Виктор on 11.03.2018.
  */
 public class Command implements Answer {
-    private String answer;
+    private String text;
 
     @Override
-    public String getAnswer() {
-        return answer;
+    public String getText() {
+        return text;
     }
 
-    public Command(String answer) {
-        this.answer = answer;
+    public Command(String text) {
+        this.text = text;
     }
 }
