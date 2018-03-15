@@ -10,9 +10,9 @@ public abstract class EhCacheBase implements Cacheble<Cache, String, Object> {
     protected CacheManager cacheManager;
     protected String cacheName;
 
-    public EhCacheBase(String myUrl, String cacheName) {
+    public EhCacheBase(String xmlConfigPath, String cacheName) {
         this.cacheName = cacheName;
-        cacheManager = CacheManagerBuilder.newCacheManager(new XmlConfiguration(getClass().getResource(myUrl)));
+        cacheManager = CacheManagerBuilder.newCacheManager(new XmlConfiguration(getClass().getResource(xmlConfigPath)));
         cacheManager.init();
     }
 

@@ -9,7 +9,7 @@ import com.common.wiki.tgm.cache.EhCacheBase;
  */
 public abstract class BusinessCache extends EhCacheBase {
 
-    public BusinessCache(String myUrl, String cacheName) {
-        super(myUrl, cacheName);
+    public BusinessCache(String xmlConfigPath, String cacheName) {
+        super(xmlConfigPath, cacheName);
     }
 }

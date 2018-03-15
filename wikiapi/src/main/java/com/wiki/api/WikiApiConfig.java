@@ -9,12 +9,12 @@ import com.common.wiki.tgm.PropertiesService;
  */
 public class WikiApiConfig {
 
-    public static final String PAGE_LINK_BY_ID_URL_KEY = "page.link.by.id.url";
-    public static final String PAGE_ID_BY_TITLE_URL_KEY = "page.id.by.title.url";
-    public static final String PAGE_CONTENT_BY_ID_URL_KEY = "page.content.by.id.url";
-    public static final String PAGE_SECTIONS_BY_ID_URL_KEY = "page.sections.by.id.url";
-    public static final String WIKI_BASE_URL = "wiki.base.url";
-    public static final String WIKI_RS_FORMAT = "wiki.format";
+    private static final String PAGE_LINK_BY_ID_URL_KEY = "page.link.by.id.url";
+    private static final String PAGE_ID_BY_TITLE_URL_KEY = "page.id.by.title.url";
+    private static final String PAGE_CONTENT_BY_ID_URL_KEY = "page.content.by.id.url";
+    private static final String PAGE_SECTIONS_BY_ID_URL_KEY = "page.sections.by.id.url";
+    private static final String WIKI_BASE_URL = "wiki.base.url";
+    private static final String WIKI_RS_FORMAT = "wiki.format";
 
     public static String getPageLinkByIdUrl() {
         return PropertiesService.getInstance().get(PAGE_LINK_BY_ID_URL_KEY);

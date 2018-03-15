@@ -9,8 +9,8 @@ import org.ehcache.Cache;
  */
 public class ArticleCache extends BusinessCache {
 
-    public ArticleCache(String myUrl, String cacheName) {
-        super(myUrl, cacheName);
+    public ArticleCache(String xmlConfigPath, String cacheName) {
+        super(xmlConfigPath, cacheName);
     }
 
     @Override
