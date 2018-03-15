@@ -56,5 +56,11 @@ http://localhost:8080/
 #### Main frameworks
 * **Spring**
 * **EhCache**
+### Deploy on remote server
+Деплой на удаленный сервер происходит путем передачи сформированного war файла. Для его создания необходимо выполнить следующую maven команду:
+```
+mvn clean package
+```
+War файл будет находится по следующему пути: *${basedir}\warpackaging\target\war-packaging-1.0-SNAPSHOT.war*
 ## Author
 Smirnov Victor
