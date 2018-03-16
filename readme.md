@@ -1,7 +1,7 @@
 # Telegram bot "Гид по Википедии"
 Бот, который по умолчанию ищет статьи в англоязычной Википедии
 ## Getting Started
-Данные инструкции позволят Вам копировать проект и запустить на своей локальной машине. 
+Данные инструкции позволят Вам запустить проект на своей локальной машине. 
 ### Requirements
 Требуется jdk8, maven 3.x
 ### Installing
@@ -62,5 +62,10 @@ http://localhost:8080/
 mvn clean package
 ```
 War файл будет находится по следующему пути: *${basedir}\warpackaging\target\war-packaging-1.0-SNAPSHOT.war*
+### Tests
+Для запуска тестов выполните следующую maven команду
+```
+mvn clean test
+```
 ## Author
 Smirnov Victor
