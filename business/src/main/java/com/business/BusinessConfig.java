@@ -3,9 +3,9 @@ package com.business;
 import com.common.wiki.tgm.PropertiesService;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+
+import static java.util.stream.Collectors.toMap;
 
 /**
  * Конфиг настроек для бизнес модулля
@@ -20,12 +20,14 @@ public class BusinessConfig {
     private static final Map<String, String> COMMAND_MAP = createMap();
 
     private static Map<String, String> createMap() {
-        String[] commands = PropertiesService.getInstance().get(INPUT_COMMAND_LIST_KEY).split(COMMA);
-        Map<String, String> map = new HashMap<>(commands.length);
-        for (String cmd : commands) {
-            map.put(cmd, PropertiesService.getInstance().get(COMMAND_KEY_PREFIX + cmd.substring(1)));
-        }
-        return map;
+        PropertiesService service = PropertiesService.getInstance();
+        String[] commands = service.get(INPUT_COMMAND_LIST_KEY).split(COMMA);
+
+        return Arrays.stream(commands)
+                .collect(toMap(
+                        cmd -> cmd,
+                        cmd -> service.get(COMMAND_KEY_PREFIX + cmd.substring(1))
+                ));
     }
 
     public Map<String, String> getCommandsMap() {

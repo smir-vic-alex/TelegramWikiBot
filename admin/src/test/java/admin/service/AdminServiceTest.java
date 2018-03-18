@@ -54,7 +54,7 @@ public class AdminServiceTest {
     @Test
     public void testCommandCreate() {
         AddCommandRq commandRq = new AddCommandRq();
-        commandRq.setCommand("command");
+        commandRq.setCommand("/command");
         commandRq.setValue("value");
 
         DefaultAnswer defaultAnswer = adminService.addCommand(commandRq);
